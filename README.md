@@ -9,9 +9,9 @@
 <p align="center">
   <a href="https://circleci.com/gh/coinbase/rosetta-verge/tree/master"><img src="https://circleci.com/gh/coinbase/rosetta-verge/tree/master.svg?style=shield" /></a>
   <a href="https://coveralls.io/github/coinbase/rosetta-verge"><img src="https://coveralls.io/repos/github/coinbase/rosetta-verge/badge.svg" /></a>
-  <a href="https://goreportcard.com/report/github.com/coinbase/rosetta-verge"><img src="https://goreportcard.com/badge/github.com/coinbase/rosetta-verge" /></a>
-  <a href="https://github.com/coinbase/rosetta-verge/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/coinbase/rosetta-verge.svg" /></a>
-  <a href="https://pkg.go.dev/github.com/coinbase/rosetta-verge?tab=overview"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=shield" /></a>
+  <a href="https://goreportcard.com/report/github.com/vergecurrency/rosetta-verge"><img src="https://goreportcard.com/badge/github.com/vergecurrency/rosetta-verge" /></a>
+  <a href="https://github.com/vergecurrency/rosetta-verge/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/coinbase/rosetta-verge.svg" /></a>
+  <a href="https://pkg.go.dev/github.com/vergecurrency/rosetta-verge?tab=overview"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=shield" /></a>
 </p>
 
 <p align="center"><b>

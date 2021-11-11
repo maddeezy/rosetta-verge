@@ -1,4 +1,4 @@
-module github.com/coinbase/rosetta-verge
+module github.com/vergecurrency/rosetta-verge
 
 go 1.16
 

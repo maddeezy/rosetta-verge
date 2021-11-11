@@ -24,7 +24,7 @@ deps:
 	go get ./...
 
 build:
-	docker build -t rosetta-verge:latest https://github.com/coinbase/rosetta-verge.git
+	docker build -t rosetta-verge:latest https://github.com/vergecurrency/rosetta-verge.git
 
 build-local:
 	docker build -t rosetta-verge:latest .
