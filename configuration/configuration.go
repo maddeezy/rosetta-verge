@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coinbase/rosetta-verge/verge"
+	"github.com/vergecurrency/rosetta-verge/verge"
 
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/coinbase/rosetta-sdk-go/storage/encoder"

@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"time"
 
-	vergeUtils "github.com/coinbase/rosetta-verge/utils"
+	vergeUtils "github.com/vergecurrency/rosetta-verge/utils"
 
 	"github.com/btcsuite/btcutil"
 	"github.com/coinbase/rosetta-sdk-go/types"

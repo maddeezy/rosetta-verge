@@ -24,8 +24,8 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/coinbase/rosetta-verge/configuration"
-	"github.com/coinbase/rosetta-verge/verge"
+	"github.com/vergecurrency/rosetta-verge/configuration"
+	"github.com/vergecurrency/rosetta-verge/verge"
 
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/btcsuite/btcd/txscript"

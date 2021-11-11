@@ -5,7 +5,7 @@ package indexer
 import (
 	context "context"
 
-	verge "github.com/coinbase/rosetta-verge/verge"
+	verge "github.com/vergecurrency/rosetta-verge/verge"
 
 	mock "github.com/stretchr/testify/mock"
 

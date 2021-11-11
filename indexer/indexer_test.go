@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/coinbase/rosetta-verge/configuration"
-	mocks "github.com/coinbase/rosetta-verge/mocks/indexer"
-	"github.com/coinbase/rosetta-verge/verge"
+	"github.com/vergecurrency/rosetta-verge/configuration"
+	mocks "github.com/vergecurrency/rosetta-verge/mocks/indexer"
+	"github.com/vergecurrency/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 	"github.com/coinbase/rosetta-sdk-go/utils"

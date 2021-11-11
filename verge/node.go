@@ -23,7 +23,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/coinbase/rosetta-verge/utils"
+	"github.com/vergecurrency/rosetta-verge/utils"
 
 	"golang.org/x/sync/errgroup"
 )

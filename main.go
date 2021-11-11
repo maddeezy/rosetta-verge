@@ -24,11 +24,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/coinbase/rosetta-verge/configuration"
-	"github.com/coinbase/rosetta-verge/indexer"
-	"github.com/coinbase/rosetta-verge/services"
-	"github.com/coinbase/rosetta-verge/utils"
-	"github.com/coinbase/rosetta-verge/verge"
+	"github.com/vergecurrency/rosetta-verge/configuration"
+	"github.com/vergecurrency/rosetta-verge/indexer"
+	"github.com/vergecurrency/rosetta-verge/services"
+	"github.com/vergecurrency/rosetta-verge/utils"
+	"github.com/vergecurrency/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/asserter"
 	"github.com/coinbase/rosetta-sdk-go/server"

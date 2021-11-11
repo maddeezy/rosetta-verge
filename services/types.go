@@ -17,7 +17,7 @@ package services
 import (
 	"context"
 
-	"github.com/coinbase/rosetta-verge/verge"
+	"github.com/vergecurrency/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 )
