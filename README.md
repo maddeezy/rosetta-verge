@@ -129,7 +129,7 @@ you can find a high-level overview of how everything fits together:
                                +-------------------+ pruner <----------+                |         |
                                |                 | +--------+          |                |         |
                          +-----v----+            |                     |                |         |
-                         | bitcoind |            |              +------+--------+       |         |
+                         | verged |            |              +------+--------+       |         |
                          +-----+----+            |     +--------> block_storage <----+  |         |
                                |                 |     |        +---------------+    |  |         |
                                |                 | +---+----+                        |  |         |
@@ -157,7 +157,7 @@ you can find a high-level overview of how everything fits together:
 ```
 
 ### Optimizations
-* Automatically prune bitcoind while indexing blocks
+* Automatically prune verged while indexing blocks
 * Reduce sync time with concurrent block indexing
 * Use [Zstandard compression](https://github.com/facebook/zstd) to reduce the size of data stored on disk
 without needing to write a manual byte-level encoding
@@ -170,7 +170,7 @@ multiple inputs from disk while it waits for inputs that appeared
 in recently processed blocks to save to disk.
 ```text
                                                    +----------+
-                                                   | bitcoind |
+                                                   | verged |
                                                    +-----+----+
                                                          |
                                                          |
