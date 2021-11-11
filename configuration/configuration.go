@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coinbase/rosetta-verge/bitcoin"
+	"github.com/coinbase/rosetta-verge/verge"
 
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/coinbase/rosetta-sdk-go/storage/encoder"
@@ -50,11 +50,11 @@ const (
 
 	// mainnetConfigPath is the path of the Verge
 	// configuration file for mainnet.
-	mainnetConfigPath = "/app/bitcoin-mainnet.conf"
+	mainnetConfigPath = "/app/verge-mainnet.conf"
 
 	// testnetConfigPath is the path of the Verge
 	// configuration file for testnet.
-	testnetConfigPath = "/app/bitcoin-testnet.conf"
+	testnetConfigPath = "/app/verge-testnet.conf"
 
 	// Zstandard compression dictionaries
 	transactionNamespace         = "transaction"
@@ -65,11 +65,11 @@ const (
 	testnetRPCPort = 18332
 
 	// min prune depth is 288:
-	// https://github.com/bitcoin/bitcoin/blob/ad2952d17a2af419a04256b10b53c7377f826a27/src/validation.h#L84
+	// https://github.com/verge/verge/blob/ad2952d17a2af419a04256b10b53c7377f826a27/src/validation.h#L84
 	pruneDepth = int64(10000) //nolint
 
 	// min prune height (on mainnet):
-	// https://github.com/bitcoin/bitcoin/blob/62d137ac3b701aae36c1aa3aa93a83fd6357fde6/src/chainparams.cpp#L102
+	// https://github.com/verge/verge/blob/62d137ac3b701aae36c1aa3aa93a83fd6357fde6/src/chainparams.cpp#L102
 	minPruneHeight = int64(100000) //nolint
 
 	// attempt to prune once an hour
@@ -79,8 +79,8 @@ const (
 	// persistent data.
 	DataDirectory = "/data"
 
-	bitcoindPath = "bitcoind"
-	indexerPath  = "indexer"
+	vergedPath  = "verged"
+	indexerPath = "indexer"
 
 	// allFilePermissions specifies anyone can do anything
 	// to the file.
@@ -143,9 +143,9 @@ func LoadConfiguration(baseDirectory string) (*Configuration, error) {
 			return nil, fmt.Errorf("%w: unable to create indexer path", err)
 		}
 
-		config.VergedPath = path.Join(baseDirectory, bitcoindPath)
+		config.VergedPath = path.Join(baseDirectory, vergedPath)
 		if err := ensurePathExists(config.VergedPath); err != nil {
-			return nil, fmt.Errorf("%w: unable to create bitcoind path", err)
+			return nil, fmt.Errorf("%w: unable to create verged path", err)
 		}
 	case Offline:
 		config.Mode = Offline
@@ -159,12 +159,12 @@ func LoadConfiguration(baseDirectory string) (*Configuration, error) {
 	switch networkValue {
 	case Mainnet:
 		config.Network = &types.NetworkIdentifier{
-			Blockchain: bitcoin.Blockchain,
-			Network:    bitcoin.MainnetNetwork,
+			Blockchain: verge.Blockchain,
+			Network:    verge.MainnetNetwork,
 		}
-		config.GenesisBlockIdentifier = bitcoin.MainnetGenesisBlockIdentifier
-		config.Params = bitcoin.MainnetParams
-		config.Currency = bitcoin.MainnetCurrency
+		config.GenesisBlockIdentifier = verge.MainnetGenesisBlockIdentifier
+		config.Params = verge.MainnetParams
+		config.Currency = verge.MainnetCurrency
 		config.ConfigPath = mainnetConfigPath
 		config.RPCPort = mainnetRPCPort
 		config.Compressors = []*encoder.CompressorEntry{
@@ -175,12 +175,12 @@ func LoadConfiguration(baseDirectory string) (*Configuration, error) {
 		}
 	case Testnet:
 		config.Network = &types.NetworkIdentifier{
-			Blockchain: bitcoin.Blockchain,
-			Network:    bitcoin.TestnetNetwork,
+			Blockchain: verge.Blockchain,
+			Network:    verge.TestnetNetwork,
 		}
-		config.GenesisBlockIdentifier = bitcoin.TestnetGenesisBlockIdentifier
-		config.Params = bitcoin.TestnetParams
-		config.Currency = bitcoin.TestnetCurrency
+		config.GenesisBlockIdentifier = verge.TestnetGenesisBlockIdentifier
+		config.Params = verge.TestnetParams
+		config.Currency = verge.TestnetCurrency
 		config.ConfigPath = testnetConfigPath
 		config.RPCPort = testnetRPCPort
 		config.Compressors = []*encoder.CompressorEntry{

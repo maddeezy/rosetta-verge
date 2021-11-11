@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package bitcoin
+package verge
 
 import (
 	"fmt"
@@ -69,14 +69,14 @@ const (
 	// of any transaction hash in Verge.
 	TransactionHashLength = 64
 
-	// NullData is returned by bitcoind
+	// NullData is returned by verged
 	// as the ScriptPubKey.Type for OP_RETURN
 	// locking scripts.
 	NullData = "nulldata"
 )
 
 // Fee estimate constants
-// Source: https://bitcoinops.org/en/tools/calc-size/
+// Source: https://vergeops.org/en/tools/calc-size/
 const (
 	MinFeeRate            = float64(0.00001) // nolint:gomnd
 	TransactionOverhead   = 12               // 4 version, 2 segwit flag, 1 vin, 1 vout, 4 lock time

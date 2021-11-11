@@ -20,7 +20,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/coinbase/rosetta-verge/bitcoin"
+	"github.com/coinbase/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/storage/encoder"
 	"github.com/coinbase/rosetta-sdk-go/types"
@@ -56,12 +56,12 @@ func TestLoadConfiguration(t *testing.T) {
 			cfg: &Configuration{
 				Mode: Online,
 				Network: &types.NetworkIdentifier{
-					Network:    bitcoin.MainnetNetwork,
-					Blockchain: bitcoin.Blockchain,
+					Network:    verge.MainnetNetwork,
+					Blockchain: verge.Blockchain,
 				},
-				Params:                 bitcoin.MainnetParams,
-				Currency:               bitcoin.MainnetCurrency,
-				GenesisBlockIdentifier: bitcoin.MainnetGenesisBlockIdentifier,
+				Params:                 verge.MainnetParams,
+				Currency:               verge.MainnetCurrency,
+				GenesisBlockIdentifier: verge.MainnetGenesisBlockIdentifier,
 				Port:                   1000,
 				RPCPort:                mainnetRPCPort,
 				ConfigPath:             mainnetConfigPath,
@@ -85,12 +85,12 @@ func TestLoadConfiguration(t *testing.T) {
 			cfg: &Configuration{
 				Mode: Online,
 				Network: &types.NetworkIdentifier{
-					Network:    bitcoin.TestnetNetwork,
-					Blockchain: bitcoin.Blockchain,
+					Network:    verge.TestnetNetwork,
+					Blockchain: verge.Blockchain,
 				},
-				Params:                 bitcoin.TestnetParams,
-				Currency:               bitcoin.TestnetCurrency,
-				GenesisBlockIdentifier: bitcoin.TestnetGenesisBlockIdentifier,
+				Params:                 verge.TestnetParams,
+				Currency:               verge.TestnetCurrency,
+				GenesisBlockIdentifier: verge.TestnetGenesisBlockIdentifier,
 				Port:                   1000,
 				RPCPort:                testnetRPCPort,
 				ConfigPath:             testnetConfigPath,
@@ -143,7 +143,7 @@ func TestLoadConfiguration(t *testing.T) {
 				assert.Contains(t, err.Error(), test.err.Error())
 			} else {
 				test.cfg.IndexerPath = path.Join(newDir, "indexer")
-				test.cfg.VergedPath = path.Join(newDir, "bitcoind")
+				test.cfg.VergedPath = path.Join(newDir, "verged")
 				assert.Equal(t, test.cfg, cfg)
 				assert.NoError(t, err)
 			}

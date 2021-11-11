@@ -18,9 +18,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/coinbase/rosetta-verge/bitcoin"
 	"github.com/coinbase/rosetta-verge/configuration"
 	mocks "github.com/coinbase/rosetta-verge/mocks/services"
+	"github.com/coinbase/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 	"github.com/stretchr/testify/assert"
@@ -35,16 +35,16 @@ var (
 			MiddlewareVersion: &middlewareVersion,
 		},
 		Allow: &types.Allow{
-			OperationStatuses:       bitcoin.OperationStatuses,
-			OperationTypes:          bitcoin.OperationTypes,
+			OperationStatuses:       verge.OperationStatuses,
+			OperationTypes:          verge.OperationTypes,
 			Errors:                  Errors,
 			HistoricalBalanceLookup: HistoricalBalanceLookup,
 		},
 	}
 
 	networkIdentifier = &types.NetworkIdentifier{
-		Network:    bitcoin.MainnetNetwork,
-		Blockchain: bitcoin.Blockchain,
+		Network:    verge.MainnetNetwork,
+		Blockchain: verge.Blockchain,
 	}
 )
 
@@ -81,7 +81,7 @@ func TestNetworkEndpoints_Online(t *testing.T) {
 	cfg := &configuration.Configuration{
 		Mode:                   configuration.Online,
 		Network:                networkIdentifier,
-		GenesisBlockIdentifier: bitcoin.MainnetGenesisBlockIdentifier,
+		GenesisBlockIdentifier: verge.MainnetGenesisBlockIdentifier,
 	}
 	mockIndexer := &mocks.Indexer{}
 	mockClient := &mocks.Client{}
@@ -118,7 +118,7 @@ func TestNetworkEndpoints_Online(t *testing.T) {
 	networkStatus, err := servicer.NetworkStatus(ctx, nil)
 	assert.Nil(t, err)
 	assert.Equal(t, &types.NetworkStatusResponse{
-		GenesisBlockIdentifier: bitcoin.MainnetGenesisBlockIdentifier,
+		GenesisBlockIdentifier: verge.MainnetGenesisBlockIdentifier,
 		CurrentBlockIdentifier: blockResponse.Block.BlockIdentifier,
 		Peers: []*types.Peer{
 			{

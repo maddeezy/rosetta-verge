@@ -17,14 +17,14 @@ package services
 import (
 	"context"
 
-	"github.com/coinbase/rosetta-verge/bitcoin"
+	"github.com/coinbase/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/types"
 )
 
 const (
 	// NodeVersion is the version of
-	// bitcoin core we are using.
+	// verge core we are using.
 	NodeVersion = "0.20.1"
 
 	// HistoricalBalanceLookup indicates
@@ -75,7 +75,7 @@ type Indexer interface {
 	GetScriptPubKeys(
 		context.Context,
 		[]*types.Coin,
-	) ([]*bitcoin.ScriptPubKey, error)
+	) ([]*verge.ScriptPubKey, error)
 	GetBalance(
 		context.Context,
 		*types.AccountIdentifier,
@@ -85,10 +85,10 @@ type Indexer interface {
 }
 
 type unsignedTransaction struct {
-	Transaction    string                  `json:"transaction"`
-	ScriptPubKeys  []*bitcoin.ScriptPubKey `json:"scriptPubKeys"`
-	InputAmounts   []string                `json:"input_amounts"`
-	InputAddresses []string                `json:"input_addresses"`
+	Transaction    string                `json:"transaction"`
+	ScriptPubKeys  []*verge.ScriptPubKey `json:"scriptPubKeys"`
+	InputAmounts   []string              `json:"input_amounts"`
+	InputAddresses []string              `json:"input_addresses"`
 }
 
 type preprocessOptions struct {
@@ -98,7 +98,7 @@ type preprocessOptions struct {
 }
 
 type constructionMetadata struct {
-	ScriptPubKeys []*bitcoin.ScriptPubKey `json:"script_pub_keys"`
+	ScriptPubKeys []*verge.ScriptPubKey `json:"script_pub_keys"`
 }
 
 type signedTransaction struct {
@@ -109,5 +109,5 @@ type signedTransaction struct {
 // ParseOperationMetadata is returned from
 // ConstructionParse.
 type ParseOperationMetadata struct {
-	ScriptPubKey *bitcoin.ScriptPubKey `json:"scriptPubKey"`
+	ScriptPubKey *verge.ScriptPubKey `json:"scriptPubKey"`
 }

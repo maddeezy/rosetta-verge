@@ -17,8 +17,8 @@ package services
 import (
 	"context"
 
-	"github.com/coinbase/rosetta-verge/bitcoin"
 	"github.com/coinbase/rosetta-verge/configuration"
+	"github.com/coinbase/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/server"
 	"github.com/coinbase/rosetta-sdk-go/types"
@@ -95,8 +95,8 @@ func (s *NetworkAPIService) NetworkOptions(
 			MiddlewareVersion: types.String(MiddlewareVersion),
 		},
 		Allow: &types.Allow{
-			OperationStatuses:       bitcoin.OperationStatuses,
-			OperationTypes:          bitcoin.OperationTypes,
+			OperationStatuses:       verge.OperationStatuses,
+			OperationTypes:          verge.OperationTypes,
 			Errors:                  Errors,
 			HistoricalBalanceLookup: HistoricalBalanceLookup,
 			MempoolCoins:            MempoolCoins,

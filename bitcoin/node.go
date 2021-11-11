@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package bitcoin
+package verge
 
 import (
 	"bufio"
@@ -29,8 +29,8 @@ import (
 )
 
 const (
-	bitcoindLogger       = "bitcoind"
-	bitcoindStdErrLogger = "bitcoind stderr"
+	vergedLogger       = "verged"
+	vergedStdErrLogger = "verged stderr"
 )
 
 func logPipe(ctx context.Context, pipe io.ReadCloser, identifier string) error {
@@ -51,8 +51,8 @@ func logPipe(ctx context.Context, pipe io.ReadCloser, identifier string) error {
 			message = messages[1]
 		}
 
-		// Print debug log if from bitcoindLogger
-		if identifier == bitcoindLogger {
+		// Print debug log if from vergedLogger
+		if identifier == vergedLogger {
 			logger.Debugw(message)
 			continue
 		}
@@ -61,12 +61,12 @@ func logPipe(ctx context.Context, pipe io.ReadCloser, identifier string) error {
 	}
 }
 
-// StartVerged starts a bitcoind daemon in another goroutine
+// StartVerged starts a verged daemon in another goroutine
 // and logs the results to the console.
 func StartVerged(ctx context.Context, configPath string, g *errgroup.Group) error {
-	logger := utils.ExtractLogger(ctx, "bitcoind")
+	logger := utils.ExtractLogger(ctx, "verged")
 	cmd := exec.Command(
-		"/app/bitcoind",
+		"/app/verged",
 		fmt.Sprintf("--conf=%s", configPath),
 	) // #nosec G204
 
@@ -81,21 +81,21 @@ func StartVerged(ctx context.Context, configPath string, g *errgroup.Group) erro
 	}
 
 	g.Go(func() error {
-		return logPipe(ctx, stdout, bitcoindLogger)
+		return logPipe(ctx, stdout, vergedLogger)
 	})
 
 	g.Go(func() error {
-		return logPipe(ctx, stderr, bitcoindStdErrLogger)
+		return logPipe(ctx, stderr, vergedStdErrLogger)
 	})
 
 	if err := cmd.Start(); err != nil {
-		return fmt.Errorf("%w: unable to start bitcoind", err)
+		return fmt.Errorf("%w: unable to start verged", err)
 	}
 
 	g.Go(func() error {
 		<-ctx.Done()
 
-		logger.Warnw("sending interrupt to bitcoind")
+		logger.Warnw("sending interrupt to verged")
 		return cmd.Process.Signal(os.Interrupt)
 	})
 

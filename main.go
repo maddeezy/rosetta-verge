@@ -24,11 +24,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/coinbase/rosetta-verge/bitcoin"
 	"github.com/coinbase/rosetta-verge/configuration"
 	"github.com/coinbase/rosetta-verge/indexer"
 	"github.com/coinbase/rosetta-verge/services"
 	"github.com/coinbase/rosetta-verge/utils"
+	"github.com/coinbase/rosetta-verge/verge"
 
 	"github.com/coinbase/rosetta-sdk-go/asserter"
 	"github.com/coinbase/rosetta-sdk-go/server"
@@ -79,15 +79,15 @@ func startOnlineDependencies(
 	cancel context.CancelFunc,
 	cfg *configuration.Configuration,
 	g *errgroup.Group,
-) (*bitcoin.Client, *indexer.Indexer, error) {
-	client := bitcoin.NewClient(
-		bitcoin.LocalhostURL(cfg.RPCPort),
+) (*verge.Client, *indexer.Indexer, error) {
+	client := verge.NewClient(
+		verge.LocalhostURL(cfg.RPCPort),
 		cfg.GenesisBlockIdentifier,
 		cfg.Currency,
 	)
 
 	g.Go(func() error {
-		return bitcoin.StartVerged(ctx, cfg.ConfigPath, g)
+		return verge.StartVerged(ctx, cfg.ConfigPath, g)
 	})
 
 	i, err := indexer.Initialize(
@@ -142,7 +142,7 @@ func main() {
 	})
 
 	var i *indexer.Indexer
-	var client *bitcoin.Client
+	var client *verge.Client
 	if cfg.Mode == configuration.Online {
 		client, i, err = startOnlineDependencies(ctx, cancel, cfg, g)
 		if err != nil {
@@ -153,7 +153,7 @@ func main() {
 	// The asserter automatically rejects incorrectly formatted
 	// requests.
 	asserter, err := asserter.NewServer(
-		bitcoin.OperationTypes,
+		verge.OperationTypes,
 		services.HistoricalBalanceLookup,
 		[]*types.NetworkIdentifier{cfg.Network},
 		nil,

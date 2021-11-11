@@ -57,7 +57,7 @@ var (
 		Message: "Endpoint unavailable offline",
 	}
 
-	// ErrNotReady is returned when bitcoind is not
+	// ErrNotReady is returned when verged is not
 	// yet ready to serve queries.
 	ErrNotReady = &types.Error{
 		Code:      2, //nolint
@@ -65,7 +65,7 @@ var (
 		Retriable: true,
 	}
 
-	// ErrVerged is returned when bitcoind
+	// ErrVerged is returned when verged
 	// errors on a request.
 	ErrVerged = &types.Error{
 		Code:    3, //nolint
@@ -104,7 +104,7 @@ var (
 
 	// ErrScriptPubKeysMissing is returned when
 	// the indexer cannot populate the required
-	// bitcoin.ScriptPubKeys to construct a transaction.
+	// verge.ScriptPubKeys to construct a transaction.
 	ErrScriptPubKeysMissing = &types.Error{
 		Code:    8, //nolint
 		Message: "Missing ScriptPubKeys",
@@ -125,7 +125,7 @@ var (
 	}
 
 	// ErrUnableToDecodeScriptPubKey is returned when a
-	// bitcoin.ScriptPubKey cannot be parsed during construction.
+	// verge.ScriptPubKey cannot be parsed during construction.
 	ErrUnableToDecodeScriptPubKey = &types.Error{
 		Code:    11, //nolint
 		Message: "Unable to decode ScriptPubKey",
