@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"time"
 
-	bitcoinUtils "github.com/coinbase/rosetta-bitcoin/utils"
+	bitcoinUtils "github.com/coinbase/rosetta-verge/utils"
 
 	"github.com/btcsuite/btcutil"
 	"github.com/coinbase/rosetta-sdk-go/types"
@@ -89,10 +89,10 @@ const (
 	dialTimeout    = 5 * time.Second
 
 	// timeMultiplier is used to multiply the time
-	// returned in Bitcoin blocks to be milliseconds.
+	// returned in Verge blocks to be milliseconds.
 	timeMultiplier = 1000
 
-	// rpc credentials are fixed in rosetta-bitcoin
+	// rpc credentials are fixed in rosetta-verge
 	// because we never expose access to the raw bitcoind
 	// endpoints (that could be used perform an attack, like
 	// changing our peers).
@@ -110,9 +110,9 @@ var (
 )
 
 // Client is used to fetch blocks from bitcoind and
-// to parse Bitcoin block data into Rosetta types.
+// to parse Verge block data into Rosetta types.
 //
-// We opted not to use existing Bitcoin RPC libraries
+// We opted not to use existing Verge RPC libraries
 // because they don't allow providing context
 // in each request.
 type Client struct {
@@ -130,7 +130,7 @@ func LocalhostURL(rpcPort int) string {
 	return fmt.Sprintf("http://localhost:%d", rpcPort)
 }
 
-// NewClient creates a new Bitcoin client.
+// NewClient creates a new Verge client.
 func NewClient(
 	baseURL string,
 	genesisBlockIdentifier *types.BlockIdentifier,
@@ -803,7 +803,7 @@ func (b *Client) coinbaseTxOperation(
 	}, nil
 }
 
-// post makes a HTTP request to a Bitcoin node
+// post makes a HTTP request to a Verge node
 func (b *Client) post(
 	ctx context.Context,
 	method requestMethod,

@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coinbase/rosetta-bitcoin/bitcoin"
+	"github.com/coinbase/rosetta-verge/bitcoin"
 
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/coinbase/rosetta-sdk-go/storage/encoder"
@@ -42,17 +42,17 @@ const (
 	// to make outbound connections.
 	Offline Mode = "OFFLINE"
 
-	// Mainnet is the Bitcoin Mainnet.
+	// Mainnet is the Verge Mainnet.
 	Mainnet string = "MAINNET"
 
-	// Testnet is Bitcoin Testnet3.
+	// Testnet is Verge Testnet3.
 	Testnet string = "TESTNET"
 
-	// mainnetConfigPath is the path of the Bitcoin
+	// mainnetConfigPath is the path of the Verge
 	// configuration file for mainnet.
 	mainnetConfigPath = "/app/bitcoin-mainnet.conf"
 
-	// testnetConfigPath is the path of the Bitcoin
+	// testnetConfigPath is the path of the Verge
 	// configuration file for testnet.
 	testnetConfigPath = "/app/bitcoin-testnet.conf"
 
@@ -120,7 +120,7 @@ type Configuration struct {
 	ConfigPath             string
 	Pruning                *PruningConfiguration
 	IndexerPath            string
-	BitcoindPath           string
+	VergedPath             string
 	Compressors            []*encoder.CompressorEntry
 }
 
@@ -143,8 +143,8 @@ func LoadConfiguration(baseDirectory string) (*Configuration, error) {
 			return nil, fmt.Errorf("%w: unable to create indexer path", err)
 		}
 
-		config.BitcoindPath = path.Join(baseDirectory, bitcoindPath)
-		if err := ensurePathExists(config.BitcoindPath); err != nil {
+		config.VergedPath = path.Join(baseDirectory, bitcoindPath)
+		if err := ensurePathExists(config.VergedPath); err != nil {
 			return nil, fmt.Errorf("%w: unable to create bitcoind path", err)
 		}
 	case Offline:

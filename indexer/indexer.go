@@ -22,10 +22,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/coinbase/rosetta-bitcoin/bitcoin"
-	"github.com/coinbase/rosetta-bitcoin/configuration"
-	"github.com/coinbase/rosetta-bitcoin/services"
-	"github.com/coinbase/rosetta-bitcoin/utils"
+	"github.com/coinbase/rosetta-verge/bitcoin"
+	"github.com/coinbase/rosetta-verge/configuration"
+	"github.com/coinbase/rosetta-verge/services"
+	"github.com/coinbase/rosetta-verge/utils"
 
 	"github.com/coinbase/rosetta-sdk-go/asserter"
 	"github.com/coinbase/rosetta-sdk-go/storage/database"
@@ -268,7 +268,7 @@ func (i *Indexer) waitForNode(ctx context.Context) error {
 	}
 }
 
-// Sync attempts to index Bitcoin blocks using
+// Sync attempts to index Verge blocks using
 // the bitcoin.Client until stopped.
 func (i *Indexer) Sync(ctx context.Context) error {
 	if err := i.waitForNode(ctx); err != nil {

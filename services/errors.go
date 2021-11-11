@@ -25,7 +25,7 @@ var (
 		ErrUnimplemented,
 		ErrUnavailableOffline,
 		ErrNotReady,
-		ErrBitcoind,
+		ErrVerged,
 		ErrBlockNotFound,
 		ErrUnableToDerive,
 		ErrUnclearIntent,
@@ -61,15 +61,15 @@ var (
 	// yet ready to serve queries.
 	ErrNotReady = &types.Error{
 		Code:      2, //nolint
-		Message:   "Bitcoind is not ready",
+		Message:   "Verged is not ready",
 		Retriable: true,
 	}
 
-	// ErrBitcoind is returned when bitcoind
+	// ErrVerged is returned when bitcoind
 	// errors on a request.
-	ErrBitcoind = &types.Error{
+	ErrVerged = &types.Error{
 		Code:    3, //nolint
-		Message: "Bitcoind error",
+		Message: "Verged error",
 	}
 
 	// ErrBlockNotFound is returned when a block

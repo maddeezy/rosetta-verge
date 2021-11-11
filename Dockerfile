@@ -23,7 +23,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsdmainutils build-essential git libboost-all-dev \
   libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev wget
 
-# VERSION: Bitcoin Core 0.20.1
+# VERSION: Verge Core 0.20.1
 RUN git clone https://github.com/bitcoin/bitcoin \
   && cd bitcoin \
   && git checkout 7ff64311bee570874c4f0dfa18f518552188df08
@@ -62,7 +62,7 @@ COPY . src
 RUN cd src \
   && go build \
   && cd .. \
-  && mv src/rosetta-bitcoin /app/rosetta-bitcoin \
+  && mv src/rosetta-verge /app/rosetta-verge \
   && mv src/assets/* /app \
   && rm -rf src 
 
@@ -89,4 +89,4 @@ COPY --from=rosetta-builder /app/* /app/
 # Set permissions for everything added to /app
 RUN chmod -R 755 /app/*
 
-CMD ["/app/rosetta-bitcoin"]
+CMD ["/app/rosetta-verge"]

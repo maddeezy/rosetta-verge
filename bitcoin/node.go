@@ -23,7 +23,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/coinbase/rosetta-bitcoin/utils"
+	"github.com/coinbase/rosetta-verge/utils"
 
 	"golang.org/x/sync/errgroup"
 )
@@ -61,9 +61,9 @@ func logPipe(ctx context.Context, pipe io.ReadCloser, identifier string) error {
 	}
 }
 
-// StartBitcoind starts a bitcoind daemon in another goroutine
+// StartVerged starts a bitcoind daemon in another goroutine
 // and logs the results to the console.
-func StartBitcoind(ctx context.Context, configPath string, g *errgroup.Group) error {
+func StartVerged(ctx context.Context, configPath string, g *errgroup.Group) error {
 	logger := utils.ExtractLogger(ctx, "bitcoind")
 	cmd := exec.Command(
 		"/app/bitcoind",
