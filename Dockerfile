@@ -19,14 +19,14 @@ RUN mkdir -p /app \
   && chown -R nobody:nogroup /app
 WORKDIR /app
 
-# Source: https://github.com/verge/verge/blob/master/doc/build-unix.md#ubuntu--debian
+# Source: https://github.com/vergecurrency/verge/blob/master/doc/build-unix.md
 RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsdmainutils build-essential git libboost-all-dev \
-  libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev wget
+  libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev zlib1g-dev libseccomp-dev libcap-dev libncap-dev wget
 
-# VERSION: Verge Core 0.20.1
-RUN git clone https://github.com/verge/verge \
+# VERSION: Verge Core 7.0
+RUN git clone https://github.com/vergecurrency/verge \
   && cd verge \
-  && git checkout 7ff64311bee570874c4f0dfa18f518552188df08
+  && git checkout e7230b53b6f3c0a70585cfca5b832a5f019e88dd
 
 RUN cd verge \
   && ./autogen.sh \
