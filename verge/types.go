@@ -88,7 +88,7 @@ const (
 var (
 	// MainnetGenesisBlockIdentifier is the genesis block for mainnet.
 	MainnetGenesisBlockIdentifier = &types.BlockIdentifier{
-		Hash: "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+		Hash: "00000fc63692467faeb20cdb3b53200dc601d75bdfa1001463304cc790d77278",
 	}
 
 	// MainnetParams are the params for mainnet.
