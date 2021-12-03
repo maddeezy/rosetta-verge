@@ -475,13 +475,13 @@ func (b *Client) getHashFromIndex(
 //
 // Source: https://github.com/verge/verge/commit/ab91bf39b7c11e9c86bb2043c24f0f377f1cf514
 func skipTransactionOperations(blockNumber int64, blockHash string, transactionHash string) bool {
-	if blockNumber == 91842 && blockHash == "00000000000a4d0a398161ffc163c503763b1f4360639393e0e4c8e300e0caec" &&
-		transactionHash == "d5d27987d2a3dfc724e359870c6644b40e497bdc0589a033220fe15429d88599" {
+	if blockNumber == 91842 && blockHash == "000000000fb18c16f83228a9055322af6fb29afd89e3d4ca54be0619e8dcdbec" &&
+		transactionHash == "6a7fe6db2fd06b26c0818efae345e1b4446383b0465f74769d60969a1544179f" {
 		return true
 	}
 
-	if blockNumber == 91880 && blockHash == "00000000000743f190a18c5577a3c2d2a1f610ae9601ac046a38084ccb7cd721" &&
-		transactionHash == "e3bf3d07d4b0375638d5f1db5255fe07ba2c4cb067cd81b84ee974b6585fb468" {
+	if blockNumber == 91880 && blockHash == "0000000013240af380cd55e68ed3b71c36af7491905941c7f8e3b4f2f423d8d4" &&
+		transactionHash == "9dbda47f4fb9a385884a63ebc60b80a7fe18c9ebad59b09e9c304621d3303989" {
 		return true
 	}
 
