@@ -7,10 +7,10 @@
    Rosetta Verge
 </h3>
 <p align="center">
-  <a href="https://circleci.com/gh/vergecurrency/rosetta-verge/tree/master"><img src="https://circleci.com/gh/coinbase/rosetta-verge/tree/master.svg?style=shield" /></a>
-  <a href="https://coveralls.io/github/vergecurrency/rosetta-verge"><img src="https://coveralls.io/repos/github/coinbase/rosetta-verge/badge.svg" /></a>
+  <a href="https://circleci.com/gh/vergecurrency/rosetta-verge/tree/master"><img src="https://circleci.com/gh/vergecurrency/rosetta-verge/tree/master.svg?style=shield" /></a>
+  <a href="https://coveralls.io/github/vergecurrency/rosetta-verge"><img src="https://coveralls.io/repos/github/vergecurrency/rosetta-verge/badge.svg" /></a>
   <a href="https://goreportcard.com/report/github.com/vergecurrency/rosetta-verge"><img src="https://goreportcard.com/badge/github.com/vergecurrency/rosetta-verge" /></a>
-  <a href="https://github.com/vergecurrency/rosetta-verge/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/coinbase/rosetta-verge.svg" /></a>
+  <a href="https://github.com/vergecurrency/rosetta-verge/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/vergecurrency/rosetta-verge.svg" /></a>
   <a href="https://pkg.go.dev/github.com/vergecurrency/rosetta-verge?tab=overview"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=shield" /></a>
 </p>
 
@@ -43,7 +43,7 @@ Running the following commands will create a Docker image called `rosetta-verge:
 #### From GitHub
 To download the pre-built Docker image from the latest release, run:
 ```text
-curl -sSfL https://raw.githubusercontent.com/coinbase/rosetta-verge/master/install.sh | sh -s
+curl -sSfL https://raw.githubusercontent.com/vergecurrency/rosetta-verge/master/install.sh | sh -s
 ```
 _Do not try to install rosetta-verge using GitHub Packages!_
 
@@ -61,7 +61,7 @@ at port `8080`.
 
 #### Mainnet:Online
 ```text
-docker run -d --rm --ulimit "nofile=100000:100000" -v "$(pwd)/verge-data:/data" -e "MODE=ONLINE" -e "NETWORK=MAINNET" -e "PORT=8080" -p 8080:8080 -p 8333:8333 rosetta-verge:latest
+docker run -d --rm --ulimit "nofile=100000:100000" -v "$(pwd)/verge-data:/data" -e "MODE=ONLINE" -e "NETWORK=MAINNET" -e "PORT=8080" -p 8080:8080 -p 21102:21102 rosetta-verge:latest
 ```
 _If you cloned the repository, you can run `make run-mainnet-online`._
 
@@ -73,7 +73,7 @@ _If you cloned the repository, you can run `make run-mainnet-offline`._
 
 #### Testnet:Online
 ```text
-docker run -d --rm --ulimit "nofile=100000:100000" -v "$(pwd)/verge-data:/data" -e "MODE=ONLINE" -e "NETWORK=TESTNET" -e "PORT=8080" -p 8080:8080 -p 18333:18333 rosetta-verge:latest
+docker run -d --rm --ulimit "nofile=100000:100000" -v "$(pwd)/verge-data:/data" -e "MODE=ONLINE" -e "NETWORK=TESTNET" -e "PORT=8080" -p 8080:8080 -p 21104:21104 rosetta-verge:latest
 ```
 _If you cloned the repository, you can run `make run-testnet-online`._
 
