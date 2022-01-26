@@ -39,7 +39,7 @@ const (
 	Decimals = 8
 
 	// SatoshisInVerge is the number of
-	// Satoshis in 1 BTC (10^8).
+	// Satoshis in 1 XVG (10^8).
 	SatoshisInVerge = 100000000
 
 	// InputOpType is used to describe
@@ -96,13 +96,13 @@ var (
 
 	// MainnetCurrency is the *types.Currency for mainnet.
 	MainnetCurrency = &types.Currency{
-		Symbol:   "BTC",
+		Symbol:   "XVG",
 		Decimals: Decimals,
 	}
 
 	// TestnetGenesisBlockIdentifier is the genesis block for testnet.
 	TestnetGenesisBlockIdentifier = &types.BlockIdentifier{
-		Hash: "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943",
+		Hash: "65b4e101cacf3e1e4f3a9237e3a74ffd1186e595d8b78fa8ea22c21ef5bf9347"
 	}
 
 	// TestnetParams are the params for testnet.
@@ -110,7 +110,7 @@ var (
 
 	// TestnetCurrency is the *types.Currency for testnet.
 	TestnetCurrency = &types.Currency{
-		Symbol:   "tBTC",
+		Symbol:   "tXVG",
 		Decimals: Decimals,
 	}
 
