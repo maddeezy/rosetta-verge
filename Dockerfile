@@ -20,17 +20,17 @@ RUN mkdir -p /app \
 WORKDIR /app
 
 # Source: https://github.com/vergecurrency/verge/blob/master/doc/build-unix.md
-RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsdmainutils build-essential git libboost-all-dev \
-  libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev zlib1g-dev libseccomp-dev libcap-dev libncap-dev wget
+RUN apt-get update && apt-get install -y make gcc g++ autoconf autotools-dev bsdmainutils build-essential git libboost-all-dev libcurl4-openssl-dev libdb++-dev libevent-dev libssl-dev libtool pkg-config python python-pip libzmq3-dev zlib1g-dev libseccomp-dev libcap-dev libncap-dev wget libcanberra-gtk-module automake python3 obfs4proxy libncap-dev
 
 # VERSION: Verge Core 7.0
+# Commit created Dec 2, 2021 "update seeds" - used for V7 nodes
 RUN git clone https://github.com/vergecurrency/verge \
   && cd verge \
   && git checkout e7230b53b6f3c0a70585cfca5b832a5f019e88dd
 
 RUN cd verge \
   && ./autogen.sh \
-  && ./configure --disable-tests --without-miniupnpc --without-gui --with-incompatible-bdb --disable-hardening --disable-zmq --disable-bench --disable-wallet \
+  && ./configure --disable-tests --without-miniupnpc --without-gui --with-incompatible-bdb --disable-hardening --disable-zmq --disable-bench --disable-wallet --disable-man --disable-shared \
   && make
 
 RUN mv verge/src/verged /app/verged \
@@ -70,7 +70,7 @@ RUN cd src \
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-  apt-get install --no-install-recommends -y libevent-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev libboost-thread-dev && \
+  apt-get install --no-install-recommends -y libevent-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev libboost-thread-dev libcap-dev libboost-all-dev && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir -p /app \

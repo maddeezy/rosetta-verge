@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2020 Coinbase, Inc.
+# Copyright 2022 Verge Currency Foundation
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,11 +16,12 @@
 set -e
 
 # Inspired by: https://github.com/golangci/golangci-lint/blob/master/install.sh
+# Inspired by: https://github.com/coinbase/rosetta-bitcoin
 
 usage() {
   this=$1
   cat <<EOF
-$this: download pre-compiled Docker images for coinbase/rosetta-verge 
+$this: download pre-compiled Docker images for vergecurrency/rosetta-verge 
 
 Usage: $this [-d]
   -d turns on debug logging
@@ -198,7 +199,7 @@ EOF
 
 BINARY=rosetta-verge
 FORMAT=tar.gz
-OWNER=coinbase
+OWNER=vergecurrency
 REPO="rosetta-verge"
 PREFIX="$OWNER/$REPO"
 
